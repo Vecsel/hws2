@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, SetStateAction} from 'react'
+import React, {ChangeEvent, KeyboardEvent, } from 'react'
 import s from './Greeting.module.css'
 
 type GreetingPropsType = {
@@ -25,7 +25,7 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass = s.errorInput // need to fix with (?:)
+    const inputClass = error? s.errorInput:'' // need to fix with (?:)
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
