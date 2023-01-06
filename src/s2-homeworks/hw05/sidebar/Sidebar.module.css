@@ -6,9 +6,11 @@
     transition: 500ms;
     width: 317px;
     height: 100vh;
+    visibility: hidden;
 }
 
 .sidebar.open {
+    visibility: visible;
     left: 0;
     transition: 500ms;
 }
