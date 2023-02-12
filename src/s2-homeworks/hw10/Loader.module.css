@@ -1,3 +1,19 @@
 .loader {
-    /*свг и/или анимация*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(from 90deg at 50% 50%, rgba(255, 255, 255, 0) 0deg, #512DE4 360deg);
+    width: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
