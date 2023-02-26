@@ -1,8 +1,17 @@
 .container {
+    width: 500px;
 }
 
 .wrapper {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .number {
+    width: 25px;
+    margin-right: 25px;
+padding: 5px;
+}
+.number:last-child{
+    margin-left: 25px;
 }
