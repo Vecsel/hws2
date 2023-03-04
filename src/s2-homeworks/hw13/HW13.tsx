@@ -29,7 +29,7 @@ const HW13 = () => {
         setCode('')
         setImage('')
         setText('')
-        setInfo('...loading')
+        setInfo('loading')
 
         axios
             .post(url, {success: x})
@@ -70,7 +70,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        disabled={code=== 'loading'}
+                        disabled={info=== 'loading'}
 
 
                     >
@@ -80,7 +80,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        disabled={code=== 'loading'}
+                        disabled={info=== 'loading'}
 
 
                     >
@@ -90,7 +90,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        disabled={code=== 'loading'}
+                        disabled={info=== 'loading'}
 
 
                     >
