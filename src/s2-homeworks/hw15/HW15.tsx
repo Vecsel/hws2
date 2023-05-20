@@ -30,7 +30,7 @@ type ParamsType = {
 const getTechs = (params: ParamsType) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
-            'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
+            'https://samurai.it-incubator.io/api/3.0/homework/test3',
             {params}
         )
         .catch((e) => {
@@ -52,40 +52,45 @@ const HW15 = () => {
         getTechs(params)
             .then((res) => {
                 // делает студент
-
+                if (res){
+                    setTechs(res.data.techs)
+                }
                 // сохранить пришедшие данные
-
+                setLoading(false)
                 //
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
+        setPage(newPage)
         // setPage(
         // setCount(
-
+        setCount(newCount)
         // sendQuery(
         // setSearchParams(
-
-        //
+        sendQuery({newPage,newCount,sort})
+        searchParams.set("newPage",newPage.toString())
+        searchParams.set("newCount",newCount.toString())
+        setSearchParams(searchParams)
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-
+        setSort(newSort)
         // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery({newPage:page,newCount:count,sort:newSort})
+        searchParams.set("newSort",newSort)
+       setSearchParams(searchParams)
 
         //
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
+        sendQuery({newPage: params.page, newCount: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
@@ -104,6 +109,7 @@ const HW15 = () => {
 
     return (
         <div id={'hw15'}>
+
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
