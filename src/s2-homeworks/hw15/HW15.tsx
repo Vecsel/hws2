@@ -69,9 +69,9 @@ const HW15 = () => {
         setCount(newCount)
         // sendQuery(
         // setSearchParams(
-        sendQuery({newPage,newCount,sort})
-        searchParams.set("newPage",newPage.toString())
-        searchParams.set("newCount",newCount.toString())
+        sendQuery({page:newPage,count:newCount,sort})
+        searchParams.set("page",newPage.toString())
+        searchParams.set("count",newCount.toString())
         setSearchParams(searchParams)
     }
 
@@ -81,8 +81,8 @@ const HW15 = () => {
         // setSort(
         setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        sendQuery({newPage:page,newCount:count,sort:newSort})
-        searchParams.set("newSort",newSort)
+        sendQuery({page,count,sort:newSort})
+        searchParams.set("sort",newSort)
        setSearchParams(searchParams)
 
         //
@@ -90,7 +90,7 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({newPage: params.page, newCount: params.count})
+        sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
