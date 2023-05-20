@@ -54,6 +54,7 @@ const HW15 = () => {
                 // делает студент
                 if (res){
                     setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
                 }
                 // сохранить пришедшие данные
                 setLoading(false)
@@ -62,13 +63,8 @@ const HW15 = () => {
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
         setPage(newPage)
-        // setPage(
-        // setCount(
         setCount(newCount)
-        // sendQuery(
-        // setSearchParams(
         sendQuery({page:newPage,count:newCount,sort})
         searchParams.set("page",newPage.toString())
         searchParams.set("count",newCount.toString())
